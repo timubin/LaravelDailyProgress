@@ -1,0 +1,63 @@
+a{
+    text-decoration: none;
+    padding: 8px 0;
+}
+li{
+    list-style: none;
+}
+
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Ensure the body takes the full height */
+}
+
+
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensure the wrapper takes the full height */
+    margin: 0 auto;
+    border: 1px solid black;
+    width: 900px;
+}
+
+header {
+    padding: 5px 5px; 
+    background-color: aquamarine;
+}
+
+nav {
+    background: #003a7d;
+    padding: 10px 0;
+}
+
+nav a {
+    color: azure;
+    text-decoration: none;
+}
+
+main {
+    display: flex;
+    flex: 1; /* Make sure main takes up the remaining space */
+
+}
+
+article {
+    width: 85%; /* Adjust width to fit within the border */
+    padding: 10px;
+}
+
+aside {
+    width: 15%;
+    background: #b8d913;
+    color: white; /* For visibility of text inside aside */
+    padding: 10px;
+}
+footer{
+    padding: 15px;
+    background:#003a7d;
+    color: azure;
+}
