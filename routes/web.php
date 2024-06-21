@@ -1,26 +1,14 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PageController;
-use App\Http\Controllers\TestingController;
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
 
-Route::controller(PageController::class)->group(function(){
+Route::get('/',[UserController::class, 'showUsers']);
 
-    Route::get('/', 'showHome')->name('home');
-    Route::get('/blog','showBlog')->name('blog');
-    Route::get('/user/{id}',  'showUser');
+// Route::get('/user/{id}',[UserController::class, 'singleUser'])->name('view.user');
+Route::get('/user',[UserController::class, 'singleUser'])->name('view.user');
 
-});
-
-
-Route::get('/test', TestingController::class);
-
-/* Route::get('/', [PageController::class, 'showHome'])->name('home');
-
-Route::get('/blog', [PageController::class, 'showBlog'])->name('blog');
-
-Route::get('/user/{id}', [PageController::class, 'showUser']); */
