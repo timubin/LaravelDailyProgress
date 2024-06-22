@@ -19,6 +19,7 @@
             <th scope="col">Email </th>
             <th scope="col">City</th>
             <th scope="col">View</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -30,7 +31,11 @@
             <td>{{ $item->email }}</td>
             <td>{{ $item->city }}</td>
             <td>
-                <a class="btn btn-primary" href="{{route('view.user', $item->id)}}">View</a></td>
+                <a class="btn btn-primary" href="{{route('view.user', $item->id)}}">View</a>
+            </td>
+            <td>
+                <a class="btn btn-danger" href="{{route('delete.user', $item->id)}}">Delete</a>
+            </td>
         </tr>
             @endforeach
          
