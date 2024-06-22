@@ -10,56 +10,61 @@
    
     <div class="container">
         <div class="row">
-            
-    <table class="table ">
-        <thead class="table-primary">
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Email </th>
-            <th scope="col">City</th>
-            <th scope="col">View</th>
-            <th scope="col">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-       
-            @foreach ($data as $item)
-            <tr>
-            <td>{{ $item->id }}</td>
-            <td>{{ $item->name }}</td>
-            <td>{{ $item->email }}</td>
-            <td>{{ $item->city }}</td>
-            <td>
-                <a class="btn btn-primary" href="{{route('view.user', $item->id)}}">View</a>
-            </td>
-            <td>
-                <a class="btn btn-danger" href="{{route('delete.user', $item->id)}}">Delete</a>
-            </td>
-        </tr>
-            @endforeach
-         
+          <div class="col-md-7 mt-3">
+            <a class="btn btn-primary btn-sm" href="newuser">Add User</a>      
+            <table class="table table-striped">
+              <thead class="table-primary">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email </th>
+                  <th scope="col">City</th>
+                  <th scope="col">View</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+             
+                  @foreach ($data as $item)
+                  <tr>
+                  <td>{{ $item->id }}</td>
+                  <td>{{ $item->name }}</td>
+                  <td>{{ $item->email }}</td>
+                  <td id="city">{{ $item->city }}</td>
+                  <td>
+                      <a class="btn btn-primary btn-sm" href="{{route('view.user', $item->id)}}">View</a>
+                  </td>
+                  <td>
+                    <a class="btn btn-info btn-sm" href="{{route('update.page', $item->id)}}">Update</a>
+                    <a id="delete" onclick="handleDeleteClick(event)" class="btn btn-danger btn-sm" href="{{route('delete.user', $item->id)}}">Delete</a>
+                  </td>
+              </tr>
+                  @endforeach
+               
+      
+      
+              </tbody>
+            </table>
+          </div>
+     
 
-
-        </tbody>
-      </table>
 
 
         </div>
     </div>
+
+    <script>
+      var deleteLinks = document.querySelector('#delete');
+
+      function handleDeleteClick(event) {
+        event.preventDefault();
+        confirm('Are you sure you want to delete?');
+      }
+
+     
+      
+
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>
-
-
-<h1>All Users List</h1>
-
-
-
-
-<ul>
-    @foreach ($data as $data) 
-        
-    <li style="list-style: none; padding:5px;">User Name is :  {{ $data->name }} || city : {{ $data->city }} || email : {{ $data->email }}</li>
-    @endforeach
-</ul>

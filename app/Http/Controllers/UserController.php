@@ -9,12 +9,7 @@ class UserController extends Controller
 {
     public function showUsers(){
         $users = DB::table('students')->get();
-        // $users = DB::table('students')->where('id', 2)->get();
-        //$users = DB::table('students')->find(4);
-        // return $users;
-       /*  dd($users); */
-        // dump($users);
-
+ 
         return view("allusers",['data'=>$users]);
     }
 
@@ -24,17 +19,18 @@ class UserController extends Controller
     }
 
 
-    public function addUser(){
+    public function addUser(Request $req){
+
         $user = DB::table('students')
-        ->upsert(
+        ->insert(
             [
-            'name' => 'musfik ',
-            'age' => 45,
-            'email' => 'mk@yahoobaba',
-            'address' => ' Dhaka Bangladesh', 
-            'city' => 'Dhaka',
-            'phone' => ' 1234567890',
-            'password' => ' 1234567890',
+            'name' => $req->name,
+            'age' => $req->age,
+            'email' => $req->email,
+            'address' => $req->address, 
+            'city' => $req->city,
+            'phone' => $req->phone,
+            'password' => $req->password,
 
             ],
             [
@@ -44,29 +40,35 @@ class UserController extends Controller
     );
 
         if($user){
-           return  "<h1>Data inserted successfully</h1>";
+           return  redirect('/');
         }else{
            return "<h1>Something went wrong</h1>";
         }
     }
 
+ 
+    public function updatePage(string $id){
+        // $user =DB::table('students')->where('id', $id)->get();
+        $user =DB::table('students')->find($id);
+        // return $user;
+        return view ('update', ['data'=>$user]);
+    }
 
-
-    function updateUser(){
+    function updateUser(Request $req, $id){
         $user = DB::table('students')
-        ->where('id', 1)
+        ->where('id', $id)
         ->update([
-            'name' => 'Update Adele McLaughlin II ',
-            'email' => 'update@yahoobaba',
-            'address' => ' Dhaka Bangladesh',
-            'city' => 'Dhaka',
-            'phone' => ' 1234567890',
-            'password' => ' 1234567890',
+            'name' => $req->name,
+            'email' => $req->email,
+            'address' => $req->address,
+            'city' => $req->city,
+            'phone' => $req->phone,
+            'password' => $req->password,
 
         ]);
 
         if($user){
-            return  "<h1>Data Update successfully</h1>";
+            return  redirect('/');
          }else{
             return "<h1>Something went wrong</h1>";
          }

@@ -15,13 +15,15 @@
             @foreach ($data as $id=>$user )
             <h3>Name : {{ $user->name}}</h3>
             <h3>Email : {{ $user->email}}</h3>
-            <h3>city : {{ $user->city}}</h3>
+            <h3 id="city">city : {{ $user->city}}</h3>
 
                 
             @endforeach
             
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
   </body>
 </html>
 
