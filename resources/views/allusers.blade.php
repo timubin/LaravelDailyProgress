@@ -6,11 +6,18 @@
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
+
+  <style>
+    nav .w-5{
+      display: none;
+    }
+  </style>
   <body>
    
     <div class="container">
         <div class="row">
-          <div class="col-md-7 mt-3">
+          <div class="col-md-1"></div>
+          <div class="col-md-10 mt-3">
             <a class="btn btn-primary btn-sm" href="newuser">Add User</a>      
             <table class="table table-striped">
               <thead class="table-primary">
@@ -45,8 +52,16 @@
       
               </tbody>
             </table>
+            <div>
+
+              {{ $data->links() }}
+            </div>
+            <div>
+           {{--  Total Users :  {{ $data->total() }} <br>
+            Total Current Page :  {{ $data->currentPage() }} --}}
+            </div>
           </div>
-     
+          <div class="col-md-1"></div>
 
 
 
@@ -54,12 +69,13 @@
     </div>
 
     <script>
-      var deleteLinks = document.querySelector('#delete');
+ /*      var deleteLinks = document.querySelector('#delete');
 
       function handleDeleteClick(event) {
         event.preventDefault();
         confirm('Are you sure you want to delete?');
-      }
+       
+      } */
 
      
       

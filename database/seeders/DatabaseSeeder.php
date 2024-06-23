@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
     {
 
         // student::factory()->count(20)->create();
-        student::factory(10)->create();
+        student::factory(50)->create();
 
 
 
