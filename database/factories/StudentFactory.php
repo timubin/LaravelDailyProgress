@@ -19,12 +19,10 @@ class StudentFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'age' => $this->faker->date,
             'email' => $this->faker->unique()->safeEmail,
-            'address' => $this->faker->address,
+            'age' => $this->faker->date,
             'city' => $this->faker->city,
-            'phone' => $this->faker->phoneNumber,
-            'password' => Hash::make('password'), 
+       
 
         ];
     }

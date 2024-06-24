@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\citie;
 use App\Models\student;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -16,7 +17,11 @@ class DatabaseSeeder extends Seeder
     {
 
         // student::factory()->count(20)->create();
-        student::factory(50)->create();
+        // student::factory(10)->create();
+        citie::factory(10)->create();
+
+  
+    
 
 
 
